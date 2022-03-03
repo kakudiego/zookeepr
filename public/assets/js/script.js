@@ -1,6 +1,7 @@
 const $animalForm = document.querySelector('#animal-form');
+const $zookeeperForm = document.querySelector('#zookeeper-form');
 
-const handleAnimalFormSubmit = (event) => {
+const handleAnimalFormSubmit = event => {
   event.preventDefault();
 
   // get animal data and organize it
@@ -30,17 +31,17 @@ const handleAnimalFormSubmit = (event) => {
     method: 'POST',
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(animalObject),
+    body: JSON.stringify(animalObject)
   })
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
         return response.json();
       }
-      alert('Error: ' + response.statusText);
+      alert(`Error: ${response.statusText}`);
     })
-    .then((postResponse) => {
+    .then(postResponse => {
       console.log(postResponse);
       alert('Thank you for adding an animal!');
     });
